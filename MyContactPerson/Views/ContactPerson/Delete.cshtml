@@ -1,0 +1,80 @@
+﻿@model MyContactPerson.Models.ContactKU
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Data Akan di Hapus ?</h3>
+<div>
+    <h4>Contact Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Phone</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneCP)
+        </dd>
+
+        <dt>
+            <label>Email</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailCP)
+        </dd>
+
+        <dt>
+            <label>Company</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyCP)
+        </dd>
+
+        <dt>
+            <label>Country</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryCP)
+        </dd>
+
+        <dt>
+            <label>Zip Code</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCodeCP)
+        </dd>
+
+        <dt>
+            <label>State</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatetCP)
+        </dd>
+
+        <dt>
+            <label>City</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityCP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

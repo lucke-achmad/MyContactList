@@ -1,0 +1,170 @@
+/*---------------------------------*/
+/* Create Datbase on Sql Server Contact */
+/*---------------------------------*/
+
+
+USE [master]
+GO
+
+
+CREATE DATABASE [DBku]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'DBku', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MY_INSTANCE_SQL_ID\MSSQL\DATA\DBku.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'DBku_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MY_INSTANCE_SQL_ID\MSSQL\DATA\DBku_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+ALTER DATABASE [DBku] SET COMPATIBILITY_LEVEL = 110
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [DBku].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [DBku] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [DBku] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [DBku] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [DBku] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [DBku] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [DBku] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [DBku] SET AUTO_CREATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [DBku] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [DBku] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [DBku] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [DBku] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [DBku] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [DBku] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [DBku] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [DBku] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [DBku] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [DBku] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [DBku] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [DBku] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [DBku] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [DBku] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [DBku] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [DBku] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [DBku] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [DBku] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [DBku] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [DBku] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [DBku] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [DBku] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+
+ALTER DATABASE [DBku] SET  READ_WRITE 
+GO
+
+/*---------------------------------*/
+/* Create Table Contact */
+/*---------------------------------*/
+
+USE [DBku]
+GO
+
+/****** Object:  Table [dbo].[ContactKU]    Script Date: 4/6/2021 9:05:23 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ContactKU](
+	[NameCP] [varchar](30) NOT NULL,
+	[PhoneCP] [varchar](20) NULL,
+	[EmailCP] [varchar](40) NULL,
+	[CompanyCP] [varchar](50) NULL,
+	[CountryCP] [varchar](30) NULL,
+	[ZipCodeCP] [varchar](20) NULL,
+	[StatetCP] [varchar](25) NULL,
+	[CityCP] [varchar](25) NULL,
+ CONSTRAINT [PK_ContactKU] PRIMARY KEY CLUSTERED 
+(
+	[NameCP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/*---------------------------------*/
+/* Insert Data To Table */
+/*---------------------------------*/
+
+USE [DBku]
+GO
+
+INSERT INTO [dbo].[ContactKU]
+           ([NameCP],[PhoneCP],[EmailCP],[CompanyCP],[CountryCP],[ZipCodeCP],[StatetCP],[CityCP])
+     VALUES ('Abdul K','812111111','aa@register.com','PT. ABCDE','Indonesia','1113300', 'Jakarta', 'Jakarta');
+
+INSERT INTO [dbo].[ContactKU]
+           ([NameCP],[PhoneCP],[EmailCP],[CompanyCP],[CountryCP],[ZipCodeCP],[StatetCP],[CityCP])
+     VALUES ('Bambang C','813011101','bambang@dinamic.com','PT. Dinamic','Indonesia','11133KA', 'Jakarta', 'Jakarta Timur');
+
+           
+GO

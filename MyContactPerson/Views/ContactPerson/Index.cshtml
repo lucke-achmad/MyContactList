@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MyContactPerson.Models.ContactKU>
+
+@{
+    ViewBag.Title = "List Contact Person";
+}
+
+<h2>Contact Person</h2>
+
+<p class="right">
+        @Html.ActionLink("Add Contact", "Create", null, new { @class = "btn btn-default" })
+</p>
+<table class="table table-bordered table-responsive" >
+    <thead style="color:white;background-color:blue">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Country</th>
+            <th>Zip Code</th>
+            <th>State</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCodeCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatetCP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityCP)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NameCP }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Details", "Details", new { id = item.NameCP }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Remove", "Delete", new { id = item.NameCP }, new { @class = "btn btn-default" })
+
+
+            
+        </td>
+    </tr>
+}
+
+</table>

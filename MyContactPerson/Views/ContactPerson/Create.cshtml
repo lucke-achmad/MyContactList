@@ -1,0 +1,97 @@
+﻿@model MyContactPerson.Models.ContactKU
+
+@{
+    ViewBag.Title = "Add New Contact";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Contact Info</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NameCP)
+                    @Html.ValidationMessageFor(model => model.NameCP)
+                </div>
+</div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Phone</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneCP)
+                @Html.ValidationMessageFor(model => model.PhoneCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailCP)
+                @Html.ValidationMessageFor(model => model.EmailCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Company</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyCP)
+                @Html.ValidationMessageFor(model => model.CompanyCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Country</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CountryCP)
+                @Html.ValidationMessageFor(model => model.CountryCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Zip Code</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZipCodeCP)
+                @Html.ValidationMessageFor(model => model.ZipCodeCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">State</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StatetCP)
+                @Html.ValidationMessageFor(model => model.StatetCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">City</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CityCP)
+                @Html.ValidationMessageFor(model => model.CityCP)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
